@@ -3,7 +3,7 @@
     "name": "Janghwan Lee",
     "label": "",
     "image": "",
-    "email": "hwanii0288@hanyang.ac.kr",
+    "email": "{hwanii0288}at{hanyang.ac.kr}",
     "phone": "",
     "url": "https://superdocker.github.io",
     "summary": "",
@@ -90,7 +90,7 @@
       "startDate": "2020.09",
       "endDate": "2022.09",
       "awarder": "ISRC",
-      "summary": "Total 24M KRW from IoT System Semiconductor Fusion Human Resource Research Center (ISRC)"
+      "summary": "Total $20K from IoT System Semiconductor Fusion Human Resource Research Center (ISRC)"
     },
     {
       "title": "AI Grand Challenge",
@@ -98,7 +98,7 @@
       "startDate": "",
       "endDate": "",
       "awarder": "Korea Ministry of Science and ICT",
-      "summary": "First place award in Model Compression track"
+      "summary": "First place award in Model Compression track, $600K Research Grant"
     }
   ],
   "certificates": [],
