@@ -6,7 +6,7 @@ subtitle: Ph.D student at <a href='http://hanyang.ac.kr'>Hanyang University</a>,
 
 profile:
   align: right
-  image: jhlee2.jpg
+  image: jhlee3.jpg
   image_circular: true # crops the image to make it circular
   more_info: >
 
