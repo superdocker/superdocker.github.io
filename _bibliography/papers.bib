@@ -2,6 +2,19 @@
 ---
 
 @inproceedings{
+acl2024improving,
+abbr={ACL 2024},
+abstract={The rapid advancement of large language models (LLMs) has facilitated their transformation into conversational chatbots that can grasp contextual nuances and generate pertinent sentences, closely mirroring human values through advanced techniques such as instruction tuning and reinforcement learning from human feedback (RLHF). However, the computational efficiency required for LLMs, achieved through techniques like post-training quantization (PTQ), presents challenges such as token-flipping that can impair chatbot performance. In response, we propose a novel preference alignment approach, quantization-aware direct preference optimization (QDPO), that aligns quantized LLMs with their full-precision counterparts, improving conversational abilities. Evaluated on two instruction-tuned LLMs in various languages, QDPO demonstrated superior performance in improving conversational abilities compared to established PTQ and knowledge-distillation fine-tuning techniques, marking a significant step forward in the development of efficient and effective conversational LLMs.},
+pdf_unready={},
+title={Improving Conversational Abilities of Quantized Large Language Models via Direct Preference Alignment},
+author={Janghwan Lee*, Seongmin Park*, Sukjin Hong, Minsoo Kim, Du-Seong Chang, and Jungwook Choi},
+booktitle={The 62nd Annual Meeting of the Association for Computational Linguistics (ACL 2024)},
+year={2024},
+url={},
+  selected={true}
+}
+
+@inproceedings{
 iceic2024searching,
 abbr={ICEIC 2024},
 abstract={Large Language Models (LLMs) have shown re- markable success in various natural language processing tasks. However, their extensive parameter count leads to significant memory and computational demands. To tackle these challenges, there is growing interest in employing post-training quantization (PTQ) with reduced-precision floating-point (FP) operations. Yet, the optimal FP configuration remains a topic of debate. Existing studies often overlook a thorough analysis of the diverse data distributions found in LLMs and the crucial design choice, de- normal. In this paper, we conduct a comprehensive examination of the various data distributions within LLMs and the significance of denormal representation, presenting a mixed-format floating- point framework. Our proposed framework allows for sub-8- bit inference with minimal performance degradation in language modeling and reasoning tasks across a broad spectrum of LLMs.},
