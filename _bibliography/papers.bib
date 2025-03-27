@@ -104,18 +104,6 @@ url={https://openreview.net/forum?id=FUnEkOkodU},
   selected={true}
 }
 
-@misc{lee2023pillaracc,
-abbr={arXiv 2023},
-abstract={3D object detection using point cloud (PC) data is vital for autonomous driving perception pipelines, where efficient encoding is key to meeting stringent resource and latency requirements. PointPillars, a widely adopted bird's-eye view (BEV) encoding, aggregates 3D point cloud data into 2D pillars for high-accuracy 3D object detection. However, most state-of-the-art methods employing PointPillar overlook the inherent sparsity of pillar encoding, missing opportunities for significant computational reduction. In this study, we propose a groundbreaking algorithm-hardware co-design that accelerates sparse convolution processing and maximizes sparsity utilization in pillar-based 3D object detection networks. We investigate sparsification opportunities using an advanced pillar-pruning method, achieving an optimal balance between accuracy and sparsity. We introduce PillarAcc, a state-of-the-art sparsity support mechanism that enhances sparse pillar convolution through linear complexity input-output mapping generation and conflict-free gather-scatter memory access. Additionally, we propose dataflow optimization techniques, dynamically adjusting the pillar processing schedule for optimal hardware utilization under diverse sparsity operations. We evaluate PillarAcc on various cutting-edge 3D object detection networks and benchmarks, achieving remarkable speedup and energy savings compared to representative edge platforms, demonstrating record-breaking PointPillars speed of 500FPS with minimal compromise in accuracy.},
-pdf={https://arxiv.org/abs/2305.07522},
-title={PillarAcc: Sparse PointPillars Accelerator for Real-Time Point Cloud 3D Object Detection on Edge Devices}, 
-author={Minjae Lee and Hyungmin Kim and Seongmin Park and Minyong Yoon and Janghwan Lee and Junwon Choi and Mingu Kang and Jungwook Choi},
-year={2023},
-eprint={2305.07522},
-archivePrefix={arXiv},
-primaryClass={cs.AR}
-}
-
 @INPROCEEDINGS{10247958,
 abbr={DAC 2023},
 author={Kim, Janghyeon and Lee, Janghwan and Han, JeongHo and Lee, Sangheon and Choi, Jungwook},
