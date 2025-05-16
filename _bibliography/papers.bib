@@ -2,19 +2,6 @@
 ---
 
 @inproceedings{
-aaai25rilq,
-abbr={AAAI 2025},
-abstract={Low-rank adaptation (LoRA) has become the dominant method for parameter-efficient LLM fine-tuning, with LoRA-based quantization error compensation (LQEC) emerging as a powerful tool for recovering accuracy in compressed LLMs. However, LQEC has underperformed in sub-4-bit scenarios, with no prior investigation into understanding this limitation. We propose RILQ (Rank-Insensitive LoRA-based Quantization Error Compensation) to understand fundamental limitation and boost 2-bit LLM accuracy. Based on rank analysis revealing model-wise activation discrepancy loss's rank-insensitive nature, RILQ employs this loss to adjust adapters cooperatively across layers, enabling robust error compensation with low-rank adapters. Evaluations on LLaMA-2 and LLaMA-3 demonstrate RILQ's consistent improvements in 2-bit quantized inference across various state-of-the-art quantizers and enhanced accuracy in task-specific fine-tuning. RILQ maintains computational efficiency comparable to existing LoRA methods, enabling adapter-merged weight-quantized LLM inference with significantly enhanced accuracy, making it a promising approach for boosting 2-bit LLM performance.},
-pdf={https://arxiv.org/pdf/2412.01129},
-title={RILQ: Rank-Insensitive LoRA-based Quantization Error Compensation for Boosting 2-bit Large Language Model Accuracy},
-author={Geonho Lee* and Janghwan Lee* and Sukjin Hong* and Minsoo Kim and Euijai Ahn and Du-Seong Chang and Jungwook Choi},
-booktitle={The 39th Annual AAAI Conference on Artificial Intelligence (AAAI)},
-year={2025},
-url={},
-  selected={true}
-}
-
-@inproceedings{
 preprintamx,
 abbr={ACL 2025},
 abstract={Scaling Large Language Models (LLMs) with extended context lengths has increased the need for efficient low-bit quantization to manage their substantial computational demands. However, reducing precision to 4 bits frequently degrades performance due to activation outliers. To address this, we propose Asymmetric Microscaling 4-bit Floating-Point (AMXFP4) for efficient LLM inference. This novel data format leverages asymmetric shared scales to mitigate outliers while naturally capturing the asymmetry introduced by group-wise quantization. Unlike conventional 4-bit quantization methods that rely on data rotation and costly calibration, AMXFP4 uses asymmetric shared scales for direct 4-bit casting, achieving near-ideal quantization accuracy across various LLM tasks, including multi-turn conversations, long-context reasoning, and visual question answering. Our AMXFP4 format significantly outperforms MXFP4 and other leading quantization techniques, enabling robust, calibration-free 4-bit inference.},
@@ -22,6 +9,19 @@ pdf={https://arxiv.org/pdf/2411.09909},
 title={AMXFP4: Taming Activation Outliers with Asymmetric Microscaling Floating-Point for 4-bit LLM Inference},
 author={Janghwan Lee and Jiwoong Park and Jinseok Kim and Yongjik Kim and Jungju Oh and Jinwook Oh and Jungwook Choi},
 booktitle={Findings of the Association for Computational Linguistics (ACL Findings)},
+year={2025},
+url={},
+  selected={true}
+}
+
+@inproceedings{
+aaai25rilq,
+abbr={AAAI 2025},
+abstract={Low-rank adaptation (LoRA) has become the dominant method for parameter-efficient LLM fine-tuning, with LoRA-based quantization error compensation (LQEC) emerging as a powerful tool for recovering accuracy in compressed LLMs. However, LQEC has underperformed in sub-4-bit scenarios, with no prior investigation into understanding this limitation. We propose RILQ (Rank-Insensitive LoRA-based Quantization Error Compensation) to understand fundamental limitation and boost 2-bit LLM accuracy. Based on rank analysis revealing model-wise activation discrepancy loss's rank-insensitive nature, RILQ employs this loss to adjust adapters cooperatively across layers, enabling robust error compensation with low-rank adapters. Evaluations on LLaMA-2 and LLaMA-3 demonstrate RILQ's consistent improvements in 2-bit quantized inference across various state-of-the-art quantizers and enhanced accuracy in task-specific fine-tuning. RILQ maintains computational efficiency comparable to existing LoRA methods, enabling adapter-merged weight-quantized LLM inference with significantly enhanced accuracy, making it a promising approach for boosting 2-bit LLM performance.},
+pdf={https://arxiv.org/pdf/2412.01129},
+title={RILQ: Rank-Insensitive LoRA-based Quantization Error Compensation for Boosting 2-bit Large Language Model Accuracy},
+author={Geonho Lee* and Janghwan Lee* and Sukjin Hong* and Minsoo Kim and Euijai Ahn and Du-Seong Chang and Jungwook Choi},
+booktitle={The 39th Annual AAAI Conference on Artificial Intelligence (AAAI)},
 year={2025},
 url={},
   selected={true}
