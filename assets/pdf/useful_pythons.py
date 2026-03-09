@@ -49,3 +49,50 @@ if __name__ == "__main__":
                       local_dir_use_symlinks=False,
                       ignore_patterns=["*.msgpack", "*.h5"],
                       token=args.read_token)
+
+# UV guide
+# pip install uv
+uv venv gpt-oss --python 3.11 && source gpt-oss/bin/activate && uv pip install --upgrade pip
+# Later
+# source ~/gpt-oss/bin/activate
+# source ~/jhlee/gpt-oss/bin/activate
+uv pip install torch==2.8.0 torchvision torchaudio --index-url https://download.pytorch.org/whl/test/cu128
+uv pip install git+https://github.com/triton-lang/triton.git@main#subdirectory=python/triton_kernels
+
+# Dockerfile
+FROM nvcr.io/nvidia/cuda:11.8.0-devel-ubuntu22.04
+# apt packages
+RUN apt-get update
+RUN apt-get install git pip vim tmux htop libxml2 kmod systemctl lsof python3.10 -y
+RUN pip install --upgrade pip
+RUN ln -s /usr/bin/python3 /usr/bin/python
+# tmux.conf           
+RUN echo "unbind C-b"  >> ~/.tmux.conf
+RUN echo "set-option -g prefix C-a" >> ~/.tmux.conf
+RUN echo "bind-key C-a send-prefix" >> ~/.tmux.conf
+# vimrc               
+RUN echo "abbr set_pdb import pdb; pdb.set_trace()" >> ~/.vimrc
+RUN echo "abbr cmt #============================ <Esc>i" >> ~/.vimrc
+RUN echo "syntax enable" >> ~/.vimrc
+RUN echo "set background=light" >> ~/.vimrc
+RUN echo "set nocompatible" >> ~/.vimrc
+RUN echo "set hlsearch" >> ~/.vimrc
+RUN echo "highlight LineNr ctermfg=8" >> ~/.vimrc
+RUN echo "set ignorecase" >> ~/.vimrc
+RUN echo "imap <S-Tab> <Space><Space><Space><Space>" >> ~/.vimrc
+RUN echo "map 3 :norm<Space>i#<CR>" >> ~/.vimrc
+RUN echo "map , :norm<Space>1x<CR>" >> ~/.vimrc
+RUN echo "map > :norm<Space>i<Space><Space><Space><Space><CR>" >> ~/.vimrc
+RUN echo "map < :norm<Space>4x<CR>" >> ~/.vimrc
+RUN echo "map f <C-w>v" >> ~/.vimrc
+RUN echo "map <S-f> f<C-w>L:e<Space>%:p:h<CR>" >> ~/.vimrc
+RUN echo "nnoremap <leader>s :%s/\<<C-r><C-w>\>/" >> ~/.vimrc
+WORKDIR /root
+# Python library
+RUN pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+RUN pip install transformers accelerate sentencepiece tokenizers texttable toml attributedict protobuf cchardet
+RUN pip install matplotlib scikit-learn pandas
+RUN git clone https://github.com/EleutherAI/lm-evaluation-harness
+RUN cd lm-evaluation-harness && pip install -e .
+# Flush
+RUN rm -rf /root/.cache/pip
