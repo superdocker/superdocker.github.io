@@ -96,3 +96,13 @@ RUN git clone https://github.com/EleutherAI/lm-evaluation-harness
 RUN cd lm-evaluation-harness && pip install -e .
 # Flush
 RUN rm -rf /root/.cache/pip
+
+
+# Jupyter notebook
+RUN pip install jupyter
+RUN jupyter notebook --generate-config
+RUN echo "c.ServerApp.allow_remote_access = True" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.ServerApp.token = ''" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "c.ServerApp.password = ''" >> /root/.jupyter/jupyter_notebook_config.py
+RUN echo "jupyter notebook --ip 0.0.0.0 --allow-root --port=9000 --no-browser &" >> /root/jupyter-run.sh
+RUN echo "lsof -nP -iTCP:9000 | grep LISTEN" >> /root/check-port.sh
