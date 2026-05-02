@@ -4,6 +4,12 @@
 
 // Typography
 
+// Bootstrap default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, ...
+// Overriding with Inter (sans-serif) for consistent font across all elements.
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
 p,
 h1,
 h2,
