@@ -4,7 +4,7 @@ permalink: /cv/
 title: cv
 nav: true
 nav_order: 4
-cv_pdf: cv_jhlee_260501.pdf
+cv_pdf: cv_janghwan.pdf
 description:
 toc:
   sidebar: left
