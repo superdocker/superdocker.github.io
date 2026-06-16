@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(bundle exec *)",
+      "Bash(xargs ls *)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:4000)",
+      "Bash(pkill -f \"jekyll serve\")",
+      "Bash(kill %1)",
+      "Bash(chmod +x *)",
+      "Bash(sort -k5 -rh)",
+      "Bash(sips --getProperty pixelWidth --getProperty pixelHeight /Users/janghwanlee/Documents/Workspace/Blog/superdocker.github.io/assets/img/IMG_9869.jpeg)",
+      "Bash(convert --version)",
+      "Bash(ffmpeg -version)",
+      "Bash(sips *)",
+      "Bash(sort -k5 -hr)"
+    ]
+  }
+}
