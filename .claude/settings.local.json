@@ -13,7 +13,11 @@
       "Bash(convert --version)",
       "Bash(ffmpeg -version)",
       "Bash(sips *)",
-      "Bash(sort -k5 -hr)"
+      "Bash(sort -k5 -hr)",
+      "Bash(grep -o \"\\\\.btn[^{,:]*:[a-z]*[^{]*{[^}]*}\" /Users/janghwanlee/Documents/Workspace/Blog/superdocker.github.io/assets/css/bootstrap.min.css)",
+      "Skill(run)",
+      "Read(//private/tmp/**)",
+      "Bash(node -e ' *)"
     ]
   }
 }

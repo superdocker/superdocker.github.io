@@ -653,12 +653,21 @@ footer.sticky-bottom {
   }
 
   h2.bibliography {
-    color: var(--global-divider-color);
-    border-top: 1px solid var(--global-divider-color);
-    padding-top: 1rem;
-    margin-top: 2rem;
-    margin-bottom: -2rem;
-    text-align: right;
+    color: var(--global-text-color-light);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-align: left;
+    border-top: none;
+    border-bottom: 1px solid var(--global-divider-color);
+    padding-bottom: 0.75rem;
+    margin-top: 3rem;
+    margin-bottom: 0;
+
+    &:first-of-type {
+      margin-top: 0.5rem;
+    }
   }
 
   ol.bibliography {
@@ -667,44 +676,56 @@ footer.sticky-bottom {
     margin-top: 0;
 
     li {
-      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--global-divider-color);
+      padding-top: 1.75rem;
+      padding-bottom: 1.75rem;
 
-      .preview {
-        width: 100%;
-        min-width: 80px;
-        max-width: 200px;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    .pub-entry {
+      position: relative;
+
+      .pub-thumb {
+        margin-bottom: 0.75rem;
+
+        .preview {
+          width: 100%;
+          max-width: 200px;
+          border-radius: 4px;
+        }
       }
 
-      .abbr {
-        height: 2rem;
+      .venue-tag {
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--global-theme-color);
         margin-bottom: 0.5rem;
 
-        abbr {
-          display: inline-block;
-          background-color: var(--global-theme-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
+        a {
+          color: inherit;
 
-          a {
-            color: white;
-
-            &:hover {
-              text-decoration: none;
-            }
+          &:hover {
+            text-decoration: underline;
           }
-        }
-
-        .award {
-          color: var(--global-theme-color) !important;
-          border: 1px solid var(--global-theme-color);
         }
       }
 
       .title {
-        font-weight: bolder;
+        font-weight: 600;
+        font-size: 1.05rem;
+        line-height: 1.4;
+        margin-bottom: 0.4rem;
       }
 
       .author {
+        line-height: 1.6;
+        margin-bottom: 0.3rem;
+
         a {
           border-bottom: 1px dashed var(--global-theme-color);
 
@@ -731,25 +752,55 @@ footer.sticky-bottom {
         }
       }
 
+      .periodical {
+        color: var(--global-text-color-light);
+        font-size: 0.92rem;
+      }
+
       .links {
-        a.btn {
-          color: var(--global-text-color);
-          border: 1px solid var(--global-text-color);
-          padding-left: 1rem;
-          padding-right: 1rem;
-          padding-top: 0.25rem;
-          padding-bottom: 0.25rem;
-          margin-left: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin-top: 0.9rem;
+
+        .pub-link {
+          display: inline-flex;
+          align-items: center;
+          color: var(--global-text-color-light);
+          font-size: 0.8rem;
+          font-weight: 600;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+          cursor: pointer;
+          padding: 0;
+          border: none;
+          background: none;
+          transition: color 0.15s ease;
+
+          .chevron {
+            display: inline-block;
+            font-size: 0.65em;
+            margin-right: 0.4em;
+            transition: transform 0.2s ease;
+          }
 
           &:hover {
             color: var(--global-theme-color);
-            border-color: var(--global-theme-color);
+            text-decoration: none;
+          }
+
+          &.active {
+            color: var(--global-theme-color);
+
+            .chevron {
+              transform: rotate(90deg);
+            }
           }
         }
       }
 
       .badges {
-        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
         span {
           display: inline-block;
           color: $black-color;
@@ -768,15 +819,12 @@ footer.sticky-bottom {
         max-height: 0px;
         overflow: hidden;
         text-align: justify;
-        transition-property: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
+        opacity: 0;
+        transition: max-height 0.25s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease, border-color 0.25s ease;
 
         p {
-          line-height: 1.4em;
-          margin: 10px;
+          line-height: 1.5em;
+          margin: 0.9rem 0 0.2rem 0;
         }
 
         pre {
@@ -787,26 +835,17 @@ footer.sticky-bottom {
       }
 
       .hidden.open {
-        max-height: 100em;
-        transition-property: 0.15s ease;
-        -moz-transition: 0.15s ease;
-        -ms-transition: 0.15s ease;
-        -o-transition: 0.15s ease;
-        transition: all 0.15s ease;
+        opacity: 1;
       }
 
       div.abstract.hidden {
-        border: none;
+        border-left: 2px solid transparent;
+        padding-left: 1rem;
       }
 
       div.abstract.hidden.open {
-        border: none;
-        background-color: #e8f4fd;
-        color: #1a1a2e;
-
-        p, span, em, strong, a {
-          color: #1a1a2e;
-        }
+        border-left-color: var(--global-theme-color);
+        color: var(--global-text-color);
       }
     }
   }

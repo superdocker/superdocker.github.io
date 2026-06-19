@@ -1,13 +1,36 @@
 $(document).ready(function() {
   // add toggle functionality to abstract and bibtex buttons
-  $('a.abstract').click(function() {
-    $(this).parent().parent().find(".abstract.hidden").toggleClass('open');
-    $(this).parent().parent().find(".bibtex.hidden.open").toggleClass('open');
-  });
-  $('a.bibtex').click(function() {
-    $(this).parent().parent().find(".bibtex.hidden").toggleClass('open');
-    $(this).parent().parent().find(".abstract.hidden.open").toggleClass('open');
-  });
+  // height is measured via scrollHeight rather than a fixed max-height,
+  // so the open/close transition matches the actual content size
+  function setPanelOpen($panel, open) {
+    if (open) {
+      $panel.addClass('open');
+      $panel.css('max-height', $panel.prop('scrollHeight') + 'px');
+    } else {
+      $panel.removeClass('open');
+      $panel.css('max-height', '0px');
+    }
+  }
+
+  function bindToggle(triggerClass, otherClass) {
+    $('a.' + triggerClass).click(function() {
+      var $entry = $(this).parent().parent();
+      var $panel = $entry.find('.' + triggerClass + '.hidden');
+      var $otherPanel = $entry.find('.' + otherClass + '.hidden.open');
+
+      if ($otherPanel.length) {
+        setPanelOpen($otherPanel, false);
+        $entry.find('a.' + otherClass).removeClass('active');
+      }
+
+      var isOpen = $panel.hasClass('open');
+      setPanelOpen($panel, !isOpen);
+      $(this).toggleClass('active', !isOpen);
+    });
+  }
+
+  bindToggle('abstract', 'bibtex');
+  bindToggle('bibtex', 'abstract');
   $('a').removeClass('waves-effect waves-light');
 
   // bootstrap-toc

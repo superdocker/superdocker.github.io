@@ -16,7 +16,7 @@ url={},
 
 @inproceedings{
 icmlreqat,
-abbr={ICML 2026},
+abbr={ICML 2026 Oral},
 abstract={Large Reasoning Models (LRMs) achieve strong problem-solving through long chain-of-thought, but their deployment is constrained by the high cost of full-precision inference and growing KV cache footprints. Microscaled FP4 formats enable efficient FP4 deployment; however, fully quantizing weights, activations, and KV caches (W4A4KV4) causes severe reasoning degradation that existing PTQ and QAT fail to recover. We identify that FP4 failures concentrate on low-entropy tokens—precise symbolic commitments such as digits and operators—where quantization noise inflates sampling errors that cascade through reasoning traces. Based on this insight, we propose ReQAT, a reasoning-centric FP4 training framework with three components: (i) Trace-Aligned QAT (TAQ), which revisits identical reasoning traces to focus updates on critical low-entropy decisions; (ii) Selective Entropy Minimization (SEM), which reinforces confidence at low-entropy positions; and (iii) Q-FIT, a quantization-friendly initialization that jointly calibrates RoPE-consistent KV cache transformations to stabilize QAT. Under the same training budget, ReQAT not only recovers but surpasses BF16 fine-tuning accuracy—achieving while delivering up to 3.9✕ throughput speedup on NVIDIA DGX Spark and 3.1✕ on B200. This is the first demonstration that FP4 QAT can exceed full-precision accuracy for LRMs with over 3✕ speedup on production hardware.},
 pdf={https://arxiv.org/pdf/2606.15682},
 title={ReQAT: Achieving Full-Precision Reasoning Accuracy with 4-bit Floating-Point Quantization-Aware Training},
@@ -29,7 +29,7 @@ url={},
 
 @inproceedings{
 preprintamx,
-abbr={ACL 2025},
+abbr={ACL 2025 Findings},
 abstract={Scaling Large Language Models (LLMs) with extended context lengths has increased the need for efficient low-bit quantization to manage their substantial computational demands. However, reducing precision to 4 bits frequently degrades performance due to activation outliers. To address this, we propose Asymmetric Microscaling 4-bit Floating-Point (AMXFP4) for efficient LLM inference. This novel data format leverages asymmetric shared scales to mitigate outliers while naturally capturing the asymmetry introduced by group-wise quantization. Unlike conventional 4-bit quantization methods that rely on data rotation and costly calibration, AMXFP4 uses asymmetric shared scales for direct 4-bit casting, achieving near-ideal quantization accuracy across various LLM tasks, including multi-turn conversations, long-context reasoning, and visual question answering. Our AMXFP4 format significantly outperforms MXFP4 and other leading quantization techniques, enabling robust, calibration-free 4-bit inference.},
 pdf={https://arxiv.org/pdf/2411.09909},
 title={AMXFP4: Taming Activation Outliers with Asymmetric Microscaling Floating-Point for 4-bit LLM Inference},
@@ -67,7 +67,7 @@ url={},
 
 @inproceedings{
 acl2024improving,
-abbr={ACL 2024},
+abbr={ACL 2024 Oral},
 abstract={The rapid advancement of large language models (LLMs) has facilitated their transformation into conversational chatbots that can grasp contextual nuances and generate pertinent sentences, closely mirroring human values through advanced techniques such as instruction tuning and reinforcement learning from human feedback (RLHF). However, the computational efficiency required for LLMs, achieved through techniques like post-training quantization (PTQ), presents challenges such as token-flipping that can impair chatbot performance. In response, we propose a novel preference alignment approach, quantization-aware direct preference optimization (QDPO), that aligns quantized LLMs with their full-precision counterparts, improving conversational abilities. Evaluated on two instruction-tuned LLMs in various languages, QDPO demonstrated superior performance in improving conversational abilities compared to established PTQ and knowledge-distillation fine-tuning techniques, marking a significant step forward in the development of efficient and effective conversational LLMs.},
 pdf={https://arxiv.org/pdf/2407.03051},
 title={Improving Conversational Abilities of Quantized Large Language Models via Direct Preference Alignment},
@@ -80,7 +80,7 @@ url={},
 
 @inproceedings{
 iceic2024searching,
-abbr={ICEIC 2024},
+abbr={ICEIC 2024 Oral},
 abstract={Large Language Models (LLMs) have shown re- markable success in various natural language processing tasks. However, their extensive parameter count leads to significant memory and computational demands. To tackle these challenges, there is growing interest in employing post-training quantization (PTQ) with reduced-precision floating-point (FP) operations. Yet, the optimal FP configuration remains a topic of debate. Existing studies often overlook a thorough analysis of the diverse data distributions found in LLMs and the crucial design choice, de- normal. In this paper, we conduct a comprehensive examination of the various data distributions within LLMs and the significance of denormal representation, presenting a mixed-format floating- point framework. Our proposed framework allows for sub-8- bit inference with minimal performance degradation in language modeling and reasoning tasks across a broad spectrum of LLMs.},
 pdf={https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10457111},
 title={Searching Optimal Floating-Point Format for Sub-8-Bit Large Language Model Inference},
@@ -101,7 +101,7 @@ author={Minjae Lee and Seongmin Park and Hyungmin Kim and Minyong Yoon and Jangh
 booktitle={30th IEEE International Symposium on High-Performance Computer Architecture (HPCA)},
 year={2024},
 url={},
-  selected={true}
+  selected={false}
 }
 
 @inproceedings{
@@ -127,7 +127,7 @@ author={Minsoo Kim and Sihwa Lee and Janghwan Lee and Sukjin Hong and Duseong Ch
 booktitle={Thirty-seventh Conference on Neural Information Processing Systems (NeurIPS)},
 year={2023},
 url={https://openreview.net/forum?id=FUnEkOkodU},
-  selected={true}
+  selected={false}
 }
 
 @INPROCEEDINGS{10247958,
@@ -142,7 +142,7 @@ volume={},
 number={},
 pages={1-6},
 doi={10.1109/DAC56929.2023.10247958},
-selected={true}
+selected={false}
 }
 
 @INPROCEEDINGS{10096798,
@@ -161,7 +161,7 @@ selected={true}
 }
 
 @INPROCEEDINGS{9869965,
-abbr={AICAS 2022},
+abbr={AICAS 2022 Oral},
 author={Lee, Janghwan and Choi, Jungwook},
 pdf={https://ieeexplore.ieee.org/document/9869965},
 abstract={The Transformer-based fine-tuned neural networks have demonstrated remarkable success in natural language processing (NLP) at the cost of a substantial computational burden. Post-training quantization (PTQ) is a promising technique to reduce the computational cost without expensive re-training. But prior works either demand complex calibration or suffer noticeable accuracy degradation. This paper proposes a practical method for sub-8bit floating-point (FP) PTQ. The proposed method optimizes the exponent bias to minimize quantization error in terms of signal-to-quantization noise ratio (SQNR) progressively like stochastic gradient descent. We evaluate that the proposed method achieves close to full-precision model accuracy for 6 to 8 bit FP PTQ of fine-tuned BERT on GLUE and SQuAD tasks with negligible run-time overhead.},
