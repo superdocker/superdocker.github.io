@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import PubEntry from '../components/PubEntry.astro';
+import publications from '../data/publications.json';
+
+const byYear = publications.reduce<Record<number, typeof publications>>((acc, pub) => {
+  if (!acc[pub.year]) acc[pub.year] = [];
+  acc[pub.year].push(pub);
+  return acc;
+}, {});
+
+const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
+---
+
+<Layout title="Publications · Janghwan Lee">
+  <Nav />
+  <main class="max-w-3xl mx-auto px-6 py-8 flex-1">
+    <h1 class="text-xl font-semibold text-zinc-900 tracking-tight mb-6">Publications</h1>
+
+    {years.map((year) => (
+      <section class="mb-7">
+        <h2 class="text-xs font-semibold text-zinc-400 uppercase tracking-widest mb-1 pb-1.5 border-b border-zinc-200">
+          {year}
+        </h2>
+        <div class="divide-y divide-zinc-100">
+          {byYear[year].map((pub) => <PubEntry pub={pub} />)}
+        </div>
+      </section>
+    ))}
+  </main>
+  <Footer />
+</Layout>

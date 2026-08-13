@@ -17,7 +17,19 @@
       "Bash(grep -o \"\\\\.btn[^{,:]*:[a-z]*[^{]*{[^}]*}\" /Users/janghwanlee/Documents/Workspace/Blog/superdocker.github.io/assets/css/bootstrap.min.css)",
       "Skill(run)",
       "Read(//private/tmp/**)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(bash serve.sh)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(bash stop.sh)",
+      "Bash(ruby --version)",
+      "Bash(bundle --version)",
+      "Bash(rbenv version *)",
+      "Bash(bash /Users/janghwanlee/Documents/Workspace/Blog/superdocker.github.io/stop.sh)",
+      "Bash(npm --version)",
+      "Bash(npm install *)",
+      "Bash(git rm *)"
     ]
   }
 }

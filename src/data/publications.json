@@ -1,0 +1,147 @@
+[
+  {
+    "key": "reset",
+    "abbr": "Preprint",
+    "title": "ReSET: Accurate Latency-Critical NVFP4 Reasoning via Step-Aware Temperature Scaling",
+    "authors": ["Sihwa Lee*", "Janghwan Lee*", "Donghoon Yoo", "Jae Gon Kim", "Hanyul Ryu", "Soojung Ryu", "Jungwook Choi"],
+    "venue": "Preprint",
+    "year": 2026,
+    "pdf": "https://arxiv.org/pdf/2606.13233",
+    "selected": true,
+    "abstract": "Large reasoning models (LRMs) improve complex problem-solving by generating long intermediate reasoning traces, but this substantially increases inference costs. NVFP4 inference offers a promising approach to reduce both computational and memory costs through hardware-supported low-precision execution. However, directly applying NVFP4 to LRMs introduces two practical limitations: reasoning accuracy degrades under quantization, and existing NVFP4 kernels do not fully realize latency benefits in small-batch autoregressive decoding. In this work, we analyze the effect of NVFP4 quantization on token-level uncertainty during reasoning. We show that quantization increases incorrect sampling at low-entropy symbolic tokens, while causing over-concentration on a small set of tokens in high-uncertainty reasoning steps. Based on this observation, we propose ReSET, a reasoning-step entropy-based temperature-scaling method that estimates step-level uncertainty online and adapts the decoding temperature using both token-level and step-level entropy signals. To address the latency gap, we further design a CUDA-core small-M NVFP4 kernel for latency-critical autoregressive decoding. Across reasoning benchmarks and model scales, ReSET improves NVFP4 reasoning accuracy by up to ~2 points over the NVFP4 baseline. Our CUDA-core small-M kernel further improves latency-critical decoding, delivering up to 2.5x kernel-level speedup over NVFP4 vLLM and approximately 2x end-to-end decoding speedup over BF16."
+  },
+  {
+    "key": "reqat",
+    "abbr": "ICML 2026 Oral",
+    "title": "ReQAT: Achieving Full-Precision Reasoning Accuracy with 4-bit Floating-Point Quantization-Aware Training",
+    "authors": ["Janghwan Lee", "Sihwa Lee", "Jinseok Kim", "Yongjik Kim", "Jieun Lim", "Jinwook Oh", "Jungwook Choi"],
+    "venue": "Forty-third International Conference on Machine Learning (ICML, Oral)",
+    "year": 2026,
+    "pdf": "https://arxiv.org/pdf/2606.15682",
+    "selected": true,
+    "abstract": "Large Reasoning Models (LRMs) achieve strong problem-solving through long chain-of-thought, but their deployment is constrained by the high cost of full-precision inference and growing KV cache footprints. Microscaled FP4 formats enable efficient FP4 deployment; however, fully quantizing weights, activations, and KV caches (W4A4KV4) causes severe reasoning degradation that existing PTQ and QAT fail to recover. We identify that FP4 failures concentrate on low-entropy tokens—precise symbolic commitments such as digits and operators—where quantization noise inflates sampling errors that cascade through reasoning traces. Based on this insight, we propose ReQAT, a reasoning-centric FP4 training framework with three components: (i) Trace-Aligned QAT (TAQ), which revisits identical reasoning traces to focus updates on critical low-entropy decisions; (ii) Selective Entropy Minimization (SEM), which reinforces confidence at low-entropy positions; and (iii) Q-FIT, a quantization-friendly initialization that jointly calibrates RoPE-consistent KV cache transformations to stabilize QAT. Under the same training budget, ReQAT not only recovers but surpasses BF16 fine-tuning accuracy—achieving while delivering up to 3.9x throughput speedup on NVIDIA DGX Spark and 3.1x on B200."
+  },
+  {
+    "key": "amxfp4",
+    "abbr": "ACL 2025 Findings",
+    "title": "AMXFP4: Taming Activation Outliers with Asymmetric Microscaling Floating-Point for 4-bit LLM Inference",
+    "authors": ["Janghwan Lee", "Jiwoong Park", "Jinseok Kim", "Yongjik Kim", "Jungju Oh", "Jinwook Oh", "Jungwook Choi"],
+    "venue": "Findings of the Association for Computational Linguistics (ACL Findings)",
+    "year": 2025,
+    "pdf": "https://arxiv.org/pdf/2411.09909",
+    "selected": true,
+    "abstract": "Scaling Large Language Models (LLMs) with extended context lengths has increased the need for efficient low-bit quantization to manage their substantial computational demands. However, reducing precision to 4 bits frequently degrades performance due to activation outliers. To address this, we propose Asymmetric Microscaling 4-bit Floating-Point (AMXFP4) for efficient LLM inference. This novel data format leverages asymmetric shared scales to mitigate outliers while naturally capturing the asymmetry introduced by group-wise quantization. Unlike conventional 4-bit quantization methods that rely on data rotation and costly calibration, AMXFP4 uses asymmetric shared scales for direct 4-bit casting, achieving near-ideal quantization accuracy across various LLM tasks, including multi-turn conversations, long-context reasoning, and visual question answering."
+  },
+  {
+    "key": "rilq",
+    "abbr": "AAAI 2025",
+    "title": "RILQ: Rank-Insensitive LoRA-based Quantization Error Compensation for Boosting 2-bit Large Language Model Accuracy",
+    "authors": ["Geonho Lee*", "Janghwan Lee*", "Sukjin Hong*", "Minsoo Kim", "Euijai Ahn", "Du-Seong Chang", "Jungwook Choi"],
+    "venue": "The 39th Annual AAAI Conference on Artificial Intelligence (AAAI)",
+    "year": 2025,
+    "pdf": "https://arxiv.org/pdf/2412.01129",
+    "selected": true,
+    "abstract": "Low-rank adaptation (LoRA) has become the dominant method for parameter-efficient LLM fine-tuning, with LoRA-based quantization error compensation (LQEC) emerging as a powerful tool for recovering accuracy in compressed LLMs. However, LQEC has underperformed in sub-4-bit scenarios, with no prior investigation into understanding this limitation. We propose RILQ (Rank-Insensitive LoRA-based Quantization Error Compensation) to understand fundamental limitation and boost 2-bit LLM accuracy."
+  },
+  {
+    "key": "qdpo",
+    "abbr": "ACL 2024 Oral",
+    "title": "Improving Conversational Abilities of Quantized Large Language Models via Direct Preference Alignment",
+    "authors": ["Janghwan Lee*", "Seongmin Park*", "Sukjin Hong", "Minsoo Kim", "Du-Seong Chang", "Jungwook Choi"],
+    "venue": "The 62nd Annual Meeting of the Association for Computational Linguistics (ACL, Oral)",
+    "year": 2024,
+    "pdf": "https://arxiv.org/pdf/2407.03051",
+    "selected": true,
+    "abstract": "The rapid advancement of large language models (LLMs) has facilitated their transformation into conversational chatbots that can grasp contextual nuances and generate pertinent sentences, closely mirroring human values through advanced techniques such as instruction tuning and reinforcement learning from human feedback (RLHF). However, the computational efficiency required for LLMs, achieved through techniques like post-training quantization (PTQ), presents challenges such as token-flipping that can impair chatbot performance. In response, we propose a novel preference alignment approach, quantization-aware direct preference optimization (QDPO), that aligns quantized LLMs with their full-precision counterparts, improving conversational abilities."
+  },
+  {
+    "key": "isp2dla",
+    "abbr": "ASAP 2024",
+    "title": "ISP2DLA: Automated Deep Learning Accelerator Design for On-Sensor Image Signal Processing",
+    "authors": ["Dong-eon Won*", "Yeeun Kim*", "Janghwan Lee", "Minjae Lee", "Jonghyun Bae", "Jongjoo Park", "Jeongyong Song", "Jungwook Choi"],
+    "venue": "35th IEEE International Conference on Application-specific Systems, Architectures and Processors (ASAP, Poster)",
+    "year": 2024,
+    "pdf": "https://www.computer.org/csdl/proceedings-article/asap/2024/496300a237/1ZCgynJLx28",
+    "selected": false,
+    "abstract": "Deep neural network-based image signal processing (ISP-DNN) improves image quality with techniques such as demosaicing, but these models pose substantial computational and memory challenges when implemented on CMOS image sensors, particularly due to the high-resolution inputs that increase memory requirements for activations."
+  },
+  {
+    "key": "iceic2024",
+    "abbr": "ICEIC 2024 Oral",
+    "title": "Searching Optimal Floating-Point Format for Sub-8-Bit Large Language Model Inference",
+    "authors": ["Youngdeok Hwang*", "Janghwan Lee*", "Jiwoong Park", "Jieun Lim", "Jungwook Choi"],
+    "venue": "International Conference on Electronics, Information, and Communication (ICEIC, Oral)",
+    "year": 2024,
+    "pdf": "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10457111",
+    "selected": false,
+    "abstract": "Large Language Models (LLMs) have shown remarkable success in various natural language processing tasks. However, their extensive parameter count leads to significant memory and computational demands. We present a mixed-format floating-point framework allowing for sub-8-bit inference with minimal performance degradation."
+  },
+  {
+    "key": "spade",
+    "abbr": "HPCA 2024",
+    "title": "SPADE: Sparse Pillar-based 3D Object Detection Accelerator for Autonomous Driving",
+    "authors": ["Minjae Lee", "Seongmin Park", "Hyungmin Kim", "Minyong Yoon", "Janghwan Lee", "Junwon Choi", "Nam Sung Kim", "Mingu Kang", "Jungwook Choi"],
+    "venue": "30th IEEE International Symposium on High-Performance Computer Architecture (HPCA)",
+    "year": 2024,
+    "pdf": "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10476405",
+    "selected": false,
+    "abstract": "3D object detection using point cloud (PC) data is essential for perception pipelines of autonomous driving. We propose SPADE, an algorithm-hardware co-design strategy to maximize vector sparsity in pillar-based 3D object detection."
+  },
+  {
+    "key": "emnlp2023",
+    "abbr": "EMNLP 2023",
+    "title": "Enhancing Computation Efficiency in Large Language Models through Weight and Activation Quantization",
+    "authors": ["Janghwan Lee*", "Minsoo Kim*", "Seungcheol Baek", "Seokjoong Hwang", "Wonyong Sung", "Jungwook Choi"],
+    "venue": "The 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
+    "year": 2023,
+    "pdf": "https://aclanthology.org/2023.emnlp-main.910.pdf",
+    "url": "https://openreview.net/forum?id=4Ggw1DsgRQ",
+    "selected": true,
+    "abstract": "Large Language Models (LLMs) are proficient in natural language processing tasks, but their deployment is often restricted by extensive parameter sizes and computational demands. This paper focuses on post-training quantization (PTQ) in LLMs, specifically 4-bit weight and 8-bit activation (W4A8) quantization, to enhance computational efficiency."
+  },
+  {
+    "key": "neurips2023",
+    "abbr": "NeurIPS 2023",
+    "title": "Token-Scaled Logit Distillation for Ternary Weight Generative Language Models",
+    "authors": ["Minsoo Kim", "Sihwa Lee", "Janghwan Lee", "Sukjin Hong", "Duseong Chang", "Wonyong Sung", "Jungwook Choi"],
+    "venue": "Thirty-seventh Conference on Neural Information Processing Systems (NeurIPS)",
+    "year": 2023,
+    "pdf": "https://openreview.net/pdf?id=FUnEkOkodU",
+    "url": "https://openreview.net/forum?id=FUnEkOkodU",
+    "selected": false,
+    "abstract": "Generative Language Models (GLMs) have shown impressive performance in tasks such as text generation, understanding, and reasoning. We propose token-scaled logit distillation for GLMs, preventing overfitting and providing superior learning from the teacher model."
+  },
+  {
+    "key": "dac2023",
+    "abbr": "DAC 2023",
+    "title": "Range-Invariant Approximation of Non-Linear Operations for Efficient BERT Fine-Tuning",
+    "authors": ["Janghyeon Kim", "Janghwan Lee", "JeongHo Han", "Sangheon Lee", "Jungwook Choi"],
+    "venue": "2023 60th ACM/IEEE Design Automation Conference (DAC)",
+    "year": 2023,
+    "pdf": "https://ieeexplore.ieee.org/abstract/document/10247958",
+    "selected": false,
+    "abstract": "This paper proposes a range-invariant approximation of non-linear operations for training computations of Transformer-based large language models."
+  },
+  {
+    "key": "icassp2023",
+    "abbr": "ICASSP 2023",
+    "title": "Finding Optimal Numerical Format for Sub-8-Bit Post-Training Quantization of Vision Transformers",
+    "authors": ["Janghwan Lee", "Youngdeok Hwang", "Jungwook Choi"],
+    "venue": "2023 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+    "year": 2023,
+    "pdf": "https://ieeexplore.ieee.org/document/10096798",
+    "selected": true,
+    "abstract": "Vision Transformers (ViTs) have gained significant attention for their exceptional model accuracies on computer vision applications. This work proposes an analytical framework that optimizes the numerical format of each matrix multiplication of ViTs for mixed-format sub-8bit quantization."
+  },
+  {
+    "key": "aicas2022",
+    "abbr": "AICAS 2022 Oral",
+    "title": "Optimizing Exponent Bias for Sub-8bit Floating-Point Inference of Fine-tuned Transformers",
+    "authors": ["Janghwan Lee", "Jungwook Choi"],
+    "venue": "2022 IEEE 4th International Conference on Artificial Intelligence Circuits and Systems (AICAS, Oral)",
+    "year": 2022,
+    "pdf": "https://ieeexplore.ieee.org/document/9869965",
+    "selected": false,
+    "abstract": "The Transformer-based fine-tuned neural networks have demonstrated remarkable success in NLP at the cost of substantial computational burden. We propose a practical method for sub-8bit floating-point post-training quantization."
+  }
+]

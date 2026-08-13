@@ -7,7 +7,11 @@
 // Bootstrap default: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, ...
 // Overriding with Inter (sans-serif) for consistent font across all elements.
 body {
-  font-family: "DM Sans", sans-serif;
+  font-family: "Inter", sans-serif;
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 p,
@@ -43,10 +47,12 @@ table {
 a,
 table.table a {
   color: var(--global-theme-color);
+  text-decoration: none;
+  transition: color 0.15s ease;
 
   &:hover {
-    color: var(--global-theme-color);
-    text-decoration: underline;
+    color: var(--global-hover-color);
+    text-decoration: none;
   }
 
   &:hover:after :not(.nav-item.dropdown) {
@@ -224,8 +230,9 @@ blockquote {
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
-  background-color: var(--global-bg-color);
-  opacity: 0.95;
+  background-color: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .navbar .dropdown-menu {
@@ -266,17 +273,20 @@ blockquote {
   }
 
   .navbar-nav .nav-item .nav-link {
-    color: var(--global-text-color);
+    color: var(--global-text-color-light);
+    font-size: 0.875rem;
+    letter-spacing: 0.01em;
+    transition: color 0.15s ease;
 
     &:hover {
-      color: var(--global-hover-color);
+      color: var(--global-text-color);
     }
   }
 
   .navbar-nav .nav-item.active>.nav-link {
     background-color: inherit;
-    font-weight: bolder;
-    color: var(--global-theme-color);
+    font-weight: 500;
+    color: var(--global-text-color);
 
     &:hover {
       color: var(--global-hover-color);
@@ -340,17 +350,6 @@ blockquote {
 
   .bottom-bar {
     transform: rotate(0);
-  }
-}
-
-#light-toggle {
-  padding: 0;
-  border: 0;
-  background-color: inherit;
-  color: var(--global-text-color);
-
-  &:hover {
-    color: var(--global-hover-color);
   }
 }
 

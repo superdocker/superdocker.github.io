@@ -1,0 +1,116 @@
+---
+interface Props {
+  pub: {
+    key: string;
+    abbr: string;
+    title: string;
+    authors: string[];
+    venue: string;
+    year: number;
+    pdf?: string;
+    url?: string;
+    abstract?: string;
+    selected?: boolean;
+  };
+}
+
+const { pub } = Astro.props;
+const MY_NAME = 'Janghwan Lee';
+
+const isPreprint = pub.abbr.toLowerCase().includes('preprint');
+
+const isFirstOrCoFirst = pub.authors.some((a, i) => {
+  const name = a.replace('*', '').trim();
+  const hasStar = a.includes('*');
+  return name === MY_NAME && (i === 0 || hasStar);
+});
+
+const badgeClass = isPreprint
+  ? 'bg-amber-50 text-amber-700'
+  : isFirstOrCoFirst
+    ? 'bg-blue-50 text-blue-700'
+    : 'bg-zinc-100 text-zinc-500';
+---
+
+<div class="py-2.5 group" data-key={pub.key}>
+  <div class="flex flex-col gap-1">
+    <div class="flex items-start gap-3">
+      <span
+        class={`mt-0.5 shrink-0 inline-block text-[10px] font-semibold tracking-wider uppercase px-2 py-0.5 rounded ${badgeClass}`}
+      >
+        {pub.abbr}
+      </span>
+    </div>
+
+    <p class="text-[0.9rem] font-medium text-zinc-900 leading-snug">
+      {pub.title}
+    </p>
+
+    <p class="text-[0.82rem] text-zinc-500 leading-relaxed">
+      {pub.authors.map((author, i) => (
+        <>
+          {author.replace('*', '').trim() === MY_NAME
+            ? <strong class="text-zinc-700 font-medium">{author}</strong>
+            : <span>{author}</span>}
+          {i < pub.authors.length - 1 && <span>, </span>}
+        </>
+      ))}
+    </p>
+
+    <p class="text-[0.82rem] text-zinc-400 italic">
+      {pub.venue}, {pub.year}
+    </p>
+
+    <div class="flex items-center gap-3 mt-0.5">
+      {pub.pdf && (
+        <a
+          href={pub.pdf}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[0.78rem] font-medium text-blue-700 hover:text-blue-900 transition-colors uppercase tracking-wide"
+        >
+          PDF
+        </a>
+      )}
+      {pub.url && pub.url !== pub.pdf && (
+        <a
+          href={pub.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-[0.78rem] font-medium text-blue-700 hover:text-blue-900 transition-colors uppercase tracking-wide"
+        >
+          Link
+        </a>
+      )}
+      {pub.abstract && (
+        <button
+          class="text-[0.78rem] font-medium text-zinc-400 hover:text-zinc-700 transition-colors uppercase tracking-wide abstract-toggle"
+          data-target={`abstract-${pub.key}`}
+        >
+          Abstract
+        </button>
+      )}
+    </div>
+
+    {pub.abstract && (
+      <div
+        id={`abstract-${pub.key}`}
+        class="hidden mt-2 text-[0.82rem] text-zinc-500 leading-relaxed border-l-2 border-zinc-200 pl-3"
+      >
+        {pub.abstract}
+      </div>
+    )}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.abstract-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = document.getElementById(btn.getAttribute('data-target')!);
+      if (target) {
+        target.classList.toggle('hidden');
+        btn.textContent = target.classList.contains('hidden') ? 'Abstract' : 'Hide';
+      }
+    });
+  });
+</script>
