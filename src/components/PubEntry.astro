@@ -8,7 +8,6 @@ interface Props {
     venue: string;
     year: number;
     pdf?: string;
-    url?: string;
     abstract?: string;
     selected?: boolean;
   };
@@ -70,16 +69,6 @@ const badgeClass = isPreprint
           class="text-[0.78rem] font-medium text-blue-700 hover:text-blue-900 transition-colors uppercase tracking-wide"
         >
           PDF
-        </a>
-      )}
-      {pub.url && pub.url !== pub.pdf && (
-        <a
-          href={pub.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-[0.78rem] font-medium text-blue-700 hover:text-blue-900 transition-colors uppercase tracking-wide"
-        >
-          Link
         </a>
       )}
       {pub.abstract && (

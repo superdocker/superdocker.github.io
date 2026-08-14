@@ -95,7 +95,6 @@
     "venue": "The 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)",
     "year": 2023,
     "pdf": "https://aclanthology.org/2023.emnlp-main.910.pdf",
-    "url": "https://openreview.net/forum?id=4Ggw1DsgRQ",
     "selected": true,
     "abstract": "Large Language Models (LLMs) are proficient in natural language processing tasks, but their deployment is often restricted by extensive parameter sizes and computational demands. This paper focuses on post-training quantization (PTQ) in LLMs, specifically 4-bit weight and 8-bit activation (W4A8) quantization, to enhance computational efficiency—a topic less explored compared to weight-only quantization. We present two innovative techniques: activation-quantization-aware scaling (AQAS) and sequence-length-aware calibration (SLAC) to enhance PTQ by considering the combined effects on weights and activations and aligning calibration sequence lengths to target tasks. Moreover, we introduce dINT, a hybrid data format combining integer and denormal representations, to address the underflow issue in W4A8 quantization, where small values are rounded to zero. Through rigorous evaluations of LLMs, including OPT and LLaMA, we demonstrate that our techniques significantly boost task accuracies to levels comparable with full-precision models. By developing arithmetic units compatible with dINT, we further confirm that our methods yield a 2x hardware efficiency improvement compared to 8-bit integer MAC unit."
   },
@@ -107,7 +106,6 @@
     "venue": "Thirty-seventh Conference on Neural Information Processing Systems (NeurIPS)",
     "year": 2023,
     "pdf": "https://openreview.net/pdf?id=FUnEkOkodU",
-    "url": "https://openreview.net/forum?id=FUnEkOkodU",
     "selected": false,
     "abstract": "Generative Language Models (GLMs) have shown impressive performance in tasks such as text generation, understanding, and reasoning. However, the large model size poses challenges for practical deployment. To solve this problem, Quantization-Aware Training (QAT) has become increasingly popular. However, current QAT methods for generative models have resulted in a noticeable loss of accuracy. To counteract this issue, we propose a novel knowledge distillation method specifically designed for GLMs. Our method, called token-scaled logit distillation, prevents overfitting and provides superior learning from the teacher model and ground truth. This research marks the first evaluation of ternary weight quantization-aware training of large-scale GLMs with less than 1.0 degradation in perplexity and achieves enhanced accuracy in tasks like common-sense QA and arithmetic reasoning as well as natural language understanding."
   },
