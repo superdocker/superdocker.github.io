@@ -16,19 +16,15 @@ interface Props {
 const { pub } = Astro.props;
 const MY_NAME = 'Janghwan Lee';
 
-const isPreprint = pub.abbr.toLowerCase().includes('preprint');
-
 const isFirstOrCoFirst = pub.authors.some((a, i) => {
   const name = a.replace('*', '').trim();
   const hasStar = a.includes('*');
   return name === MY_NAME && (i === 0 || hasStar);
 });
 
-const badgeClass = isPreprint
-  ? 'bg-amber-50 text-amber-700'
-  : isFirstOrCoFirst
-    ? 'bg-blue-50 text-blue-700'
-    : 'bg-zinc-100 text-zinc-500';
+const badgeClass = isFirstOrCoFirst
+  ? 'bg-blue-50 text-blue-700'
+  : 'bg-zinc-100 text-zinc-500';
 ---
 
 <div class="py-2.5 group" data-key={pub.key}>

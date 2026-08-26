@@ -17,7 +17,11 @@ const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
 <Layout title="Publications · Janghwan Lee">
   <Nav />
   <main class="max-w-3xl mx-auto px-6 py-8 flex-1">
-    <h1 class="text-xl font-semibold text-zinc-900 tracking-tight mb-6">Publications</h1>
+    <h1 class="text-xl font-semibold text-zinc-900 tracking-tight mb-1">Publications</h1>
+    <p class="text-xs text-zinc-400 mb-6 flex items-center gap-1.5">
+      <span class="inline-block w-4 h-3 rounded bg-blue-50"></span>
+      First author / co-first author
+    </p>
 
     {years.map((year) => (
       <section class="mb-7">
